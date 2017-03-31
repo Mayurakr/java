@@ -1,0 +1,115 @@
+package stackQueue;
+
+class Stack{
+	private int a[];
+	int size;
+	int top=-1;
+	public Stack(int n)
+	{
+		a=new int[n];
+		size=n;
+		top=-1;
+	}
+	public void push(int val) throws Exception
+	{
+		if((top+1)>=size)
+			{
+			  throw new Exception("stack overflow");
+			}
+			else
+		a[++top]=val;
+	}
+	public int pop() throws Exception
+	{
+		if(top==-1)
+			throw new Exception("stack under flow");
+		else 
+			return a[top--];
+	}
+	
+}
+class Queue{
+   
+	int q[];
+	int front=-1,rare=-1;
+	int size;
+	public Queue(int n){
+		size=n;
+		q=new int[size];
+	}
+	public void insert(int val) throws Exception
+	{
+		if((front+1)>=size)
+			throw new Exception("queue over flow");
+		else
+			q[++front]=val; 
+	}
+	
+	public int delete() throws Exception
+	{
+		if(rare==front)
+			throw new Exception("queue under flow");
+		else
+			return q[++rare];
+	}
+	
+	
+}
+public class StackQueue {
+
+	public static void main(String[] args)
+	{
+		Stack  s=new Stack(10);
+		System.out.println("\t**** simulating stack ****\n \t pushing to stack ");
+ 		
+		for(int i=0;i<11;i++)
+ 		{
+ 			System.out.println("pushing value "+(i+1));
+ 			try {
+				s.push(i+1);
+			} catch (Exception e) {
+				System.out.println("eroor "+e.getMessage());	
+			}
+ 		}
+		System.out.println("\tpoping from stack ");
+ 		
+ 		for(int i=0;i<11;i++)
+ 		{
+ 			
+ 			try {
+				
+				System.out.println("popped value "+s.pop());
+ 			} catch (Exception e) {
+ 				
+				System.out.println("error "+e.getMessage());	
+			}
+ 		}
+ 		
+ 		Queue q=new Queue(10);
+ 		System.out.println("\t**** simulating queue**** \n inserting to queue ");
+ 		
+ 		for(int i=0;i<11;i++)
+ 		{
+ 			System.out.println("inserting value "+(i+1));
+ 			try {
+				q.insert(i+1);
+			} catch (Exception e) {
+				System.out.println("error "+e.getMessage());	
+			}
+ 		}
+		System.out.println("\tremoving value from queue  ");
+ 		
+ 		for(int i=0;i<11;i++)
+ 		{
+ 			
+ 			try {
+				
+				System.out.println("removed value "+q.delete());
+ 			} catch (Exception e) {
+				System.out.println("error "+e.getLocalizedMessage());	
+			}
+ 		}         		
+ 		
+	}
+	
+}
