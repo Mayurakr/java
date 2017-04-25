@@ -1,0 +1,59 @@
+//Demonstration of Multilevel Inheritance
+import java.util.Scanner;
+
+class Read 
+{
+	Scanner read=new Scanner(System.in);
+	public int [] a; int n;
+	void read()
+	{
+		System.out.println("Enter size: ");
+		n=read.nextInt();
+		a=new int[n];
+		System.out.println("Enter numbers: ");
+		for(int i=0;i<n;i++)
+			a[i]=read.nextInt();
+	}
+}
+class Sort extends Read
+{
+	 void sorting()
+	 {
+	       int temp = 0;  
+         for(int i=0; i < n; i++){  
+                 for(int j=1; j < (n-i); j++){  
+                          if(arr[j-1] > arr[j]){   
+                                 temp = arr[j-1];  
+                                 arr[j-1] = arr[j];  
+                                 arr[j] = temp;  
+                         }  
+                          
+                 }  
+         }  
+  
+	   System.out.println("Sorted array list: ");
+	   for(int i=0;i<n;i++)
+	            System.out.println(a[i]);
+	  }
+}
+class Repeat extends Sort
+{
+	  void checkRepeat()
+	  {
+	      for(int i=0;i<n;i++)
+	          for(int j=i+1;j<n;j++)
+	        	  if(a[j]=a[j+1])
+	        		  {System.out.println(a[i]+" is repeated");}    
+	  }
+ }
+
+public class Arraylist
+{
+	public static void main(String[] args) 
+    {
+	     Repeat ob=new Repeat();
+	     ob.read();
+	     ob.sorting();
+	     ob.checkRepeat();
+    }
+}
